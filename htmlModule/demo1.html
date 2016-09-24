@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>适用于PC，移动端的滑动插件</title>
+        <script src="src/startMove.js" charset="utf-8"></script>
+        <script src="src/drag.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            window.onload = function(){
+                var dragModule = new Drag('wrap-box');
+            }
+        </script>
+        <style media="screen">
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            html,body{
+                width: 100%;
+                height:100%;
+                background: #444444;
+            }
+            #wrap-box{
+                margin: 0 auto;
+                background: #3388ff;
+            }
+            li {
+                font-size: 100px;
+                text-align: center;
+                background:#eeeeee;
+            }
+            #flag{
+                position: absolute;
+                width: 60px;
+                text-align: center;
+                bottom: 50px;
+                left: 50%;
+                margin-left: -30px;
+                animation: jump 1s ease 0s infinite alternate;
+            }
+            #flag:before{
+                content: '';
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 30px;
+                background: rgba(83, 78, 82, 0.63);
+                left: 20px;
+                top: -30px;
+            }
+            #flag:after{
+                content: '';
+                display: block;
+                position: absolute;
+                left: 10px;
+                width: 0;
+                height: 0;
+                border-top:20px solid rgba(83, 78, 82, 0.63);
+                border-left:20px solid transparent;
+                border-right:20px solid transparent;
+            }
+            @keyframes jump {
+                from{bottom: 50px;}
+                to{bottom:20px;}
+            }
+        </style>
+    </head>
+    <body>
+        <div id="wrap-box">
+            <ul id="wrap-body">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+            </ul>
+            <div id="flag"></div>
+        </div>
+    </body>
+</html>
